@@ -33,7 +33,6 @@
 //---------------------------------------------------------------------------
 package gurux.common;
 
-import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
@@ -119,7 +118,7 @@ public class TraceEventArgs
                 { 
                     return new String(bytes, "ASCII");
                 } 
-                catch (UnsupportedEncodingException ex) 
+                catch (Exception ex) 
                 {
                     Logger.getLogger(TraceEventArgs.class.getName()).log(Level.SEVERE, null, ex);
                 }

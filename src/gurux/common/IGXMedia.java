@@ -34,8 +34,6 @@
 
 package gurux.common;
 
-import java.io.IOException;
-
 /** 
 Common interface for all Media components.<br/>
 Using this interface GXCommunication library enables communication with
@@ -78,7 +76,7 @@ public interface IGXMedia
     /** 
      Opens the media.
     */
-    void open() throws IOException;
+    void open() throws Exception;
 
     /** 
      Checks if the connection is established.
@@ -102,7 +100,7 @@ public interface IGXMedia
      @param receiver Media depend information of the receiver (optional).
      @see Receive Receive
     */
-    void send(Object data, String receiver) throws IOException;
+    void send(Object data, String receiver) throws Exception;
 
     /** 
      Returns media type as a string.
