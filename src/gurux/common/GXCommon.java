@@ -34,53 +34,23 @@
 
 package gurux.common;
 
-/** 
- An argument class for media state changed event.
-*/
-public class MediaStateEventArgs
+/*
+ * Common methods for device communicating.
+ */
+public class GXCommon 
 {
-    private MediaState m_State;
-    private boolean m_Accept;
-    
-    /** 
-     Constructor
-    */
-    public MediaStateEventArgs()
+    static String bytesToHex(byte[] bytes) 
     {
-        setAccept(true);
-    }
-
-    /** 
-     Constructor
-    */
-    public MediaStateEventArgs(MediaState state)
-    {
-        super();
-        setState(state);
-    }
-
-    /** 
-     Status information from media state.
-    */
-    
-    public final MediaState getState()
-    {
-        return m_State;
-    }
-    public final void setState(MediaState value)
-    {
-        m_State = value;
-    }
-
-    /** 
-     True is returned if media state change succeeded.
-    */
-    public final boolean getAccept()
-    {
-        return m_Accept;
-    }
-    public final void setAccept(boolean value)
-    {
-        m_Accept = value;
+        final char[] hexArray = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+        char[] hexChars = new char[bytes.length * 3];
+        int tmp;
+        for (int pos = 0; pos != bytes.length; ++pos) 
+        {
+            tmp = bytes[pos] & 0xFF;
+            hexChars[pos * 3] = hexArray[tmp >>> 4];
+            hexChars[pos * 3 + 1] = hexArray[tmp & 0x0F];
+            hexChars[pos * 3 + 2] = ' ';
+        }
+        return new String(hexChars);
     }
 }

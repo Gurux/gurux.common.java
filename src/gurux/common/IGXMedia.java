@@ -182,4 +182,9 @@ public interface IGXMedia
     */
     int getConfigurableSettings();
     void setConfigurableSettings(int value);
+    
+    /*
+     * Shows the media Properties dialog.
+     */
+    boolean properties(javax.swing.JFrame parent);
 }
