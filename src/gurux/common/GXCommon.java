@@ -39,7 +39,7 @@ package gurux.common;
  */
 public class GXCommon 
 {
-    static String bytesToHex(byte[] bytes) 
+    public static String bytesToHex(byte[] bytes) 
     {
         final char[] hexArray = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
         char[] hexChars = new char[bytes.length * 3];

@@ -83,20 +83,6 @@ public class TraceEventArgs
         privateData = value;
     }
 
-    static String bytesToHex(byte[] bytes) 
-    {
-        final char[] hexArray = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-        char[] hexChars = new char[bytes.length * 3];
-        int tmp;
-        for (int pos = 0; pos != bytes.length; ++pos) 
-        {
-            tmp = bytes[pos] & 0xFF;
-            hexChars[pos * 3] = hexArray[tmp >> 4];
-            hexChars[pos * 3 + 1] = hexArray[tmp & 0x0F];
-            hexChars[pos * 3 + 2] = ' ';
-        }
-        return new String(hexChars);
-    }
     /** 
      Convert data to string.
 
@@ -107,7 +93,7 @@ public class TraceEventArgs
     {
         if (getData() == null)
         {
-                return "";
+            return "";
         }
         if (getData() instanceof byte[])
         {
@@ -123,7 +109,7 @@ public class TraceEventArgs
                     Logger.getLogger(TraceEventArgs.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            return bytesToHex(bytes);
+            return GXCommon.bytesToHex(bytes);
         }
         return String.valueOf(getData());
     }
