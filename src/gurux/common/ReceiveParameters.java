@@ -98,6 +98,10 @@ public class ReceiveParameters<T>
     }
     public final void setCount(int value)
     {
+        if (value < 0)
+        {
+            throw new IllegalArgumentException("Count");
+        }
         privateCount = value;
     }
 

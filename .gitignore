@@ -15,7 +15,6 @@ local.properties
 .classpath
 .settings/
 .loadpath
-nbproject/private/
 
 # External tool builders
 .externalToolBuilders/
@@ -128,6 +127,7 @@ publish/
 # Publish Web Output
 *.Publish.xml
 *.pubxml
+*.publishproj
 
 # NuGet Packages Directory
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
@@ -188,7 +188,7 @@ $RECYCLE.BIN/
 ## Python
 #############
 
-*.py[co]
+*.py[cod]
 
 # Packages
 *.egg
@@ -214,3 +214,5 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+nbproject/private/private.properties
+nbproject/genfiles.properties
