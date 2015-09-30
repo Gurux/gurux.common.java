@@ -26,36 +26,40 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 // See the GNU General Public License for more details.
 //
-// More information of Gurux products: http://www.gurux.org
-//
 // This code is licensed under the GNU General Public License v2. 
 // Full text may be retrieved at http://www.gnu.org/licenses/gpl-2.0.txt
 //---------------------------------------------------------------------------
+
 package gurux.common;
 
-/** 
- * Trace Type enumerates where trace is sent.
-*/
-public enum TraceTypes
-{
-    /** 
-     Data is sent.
-    */
-    SENT,
-    /** 
-     Data is received.
-    */
-    RECEIVED,
-    /** 
-     Error has occurred.
-    */
-    ERROR,
-    /** 
-     Warning.
-    */
-    WARNING,
-    /** 
-     Info. Example Media states are notified as info.
-    */
-    INFO
+/**
+ * This class is used to synchronize media component.
+ * 
+ * @author Gurux Ltd.
+ */
+public class GXSync {
+    /**
+     * Synchronize count.
+     */
+    private int[] count;
+
+    /**
+     * Constructor.
+     * 
+     * @param value
+     *            Array to owner counter object.
+     */
+    public GXSync(final int[] value) {
+        count = value;
+        ++count[0];
+    }
+
+    /**
+     * Destructor.
+     */
+    @Override
+    protected final void finalize() throws Throwable {
+        --count[0];
+        super.finalize(); // not necessary if extending Object.
+    }
 }

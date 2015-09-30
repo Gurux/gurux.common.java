@@ -32,30 +32,36 @@
 // Full text may be retrieved at http://www.gnu.org/licenses/gpl-2.0.txt
 //---------------------------------------------------------------------------
 
-package gurux.common;
+package gurux.common.enums;
 
- // Summary:
-//     Specifies what messages to output for the System.Diagnostics.Debug, System.Diagnostics.Trace
-//     and System.Diagnostics.TraceSwitch classes.
-public enum TraceLevel
-{
-    // Summary:
-    //     Output no tracing and debugging messages.
+/**
+ * Specifies trace levels.
+ * 
+ * @author Gurux Ltd.
+ */
+public enum TraceLevel {
+    /**
+     * Output no tracing and debugging messages.
+     */
     OFF,
-    //
-    // Summary:
-    //     Output error-handling messages.
+
+    /**
+     * Output error-handling messages.
+     */
     ERROR,
-    //
-    // Summary:
-    //     Output warnings and error-handling messages.
+
+    /**
+     * Output warnings and error-handling messages.
+     */
     WARNING,
-    //
-    // Summary:
-    //     Output informational messages, warnings, and error-handling messages.
+
+    /**
+     * Output informational messages, warnings, and error-handling messages.
+     */
     INFO,
-    //
-    // Summary:
-    //     Output all debugging and tracing messages.
+
+    /**
+     * Output all debugging and tracing messages.
+     */
     VERBOSE;
 }

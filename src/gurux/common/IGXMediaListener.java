@@ -34,51 +34,61 @@
 
 package gurux.common;
 
-public interface IGXMediaListener 
-{
-    /** 
-        Represents the method that will handle the error event of a Gurux component.
-
-        @param sender The source of the event.
-        @param ex An Exception object that contains the event data.
-    */
+/**
+ * 
+ * @author Gurux Ltd.
+ *
+ */
+public interface IGXMediaListener {
+    /**
+     * Represents the method that will handle the error event of a Gurux
+     * component.
+     * 
+     * @param sender
+     *            The source of the event.
+     * @param ex
+     *            An Exception object that contains the event data.
+     */
     void onError(Object sender, RuntimeException ex);
 
-    /** 
-     Media component sends received data through this method.
+    /**
+     * Media component sends received data through this method.
+     * 
+     * @param sender
+     *            The source of the event.
+     * @param e
+     *            Event arguments.
+     */
+    void onReceived(Object sender, ReceiveEventArgs e);
 
-     @param sender The source of the event.
-     @param e Event arguments.
-    */
-    void onReceived(Object sender, ReceiveEventArgs e);    
-
-    /** 
-     Media component sends notification, when its state changes.
-
-     @param sender The source of the event.    
-     @param e Event arguments.
-    */
+    /**
+     * Media component sends notification, when its state changes.
+     * 
+     * @param sender
+     *            The source of the event.
+     * @param e
+     *            Event arguments.
+     */
     void onMediaStateChange(Object sender, MediaStateEventArgs e);
 
-    /** 
-     Called when the Media is sending or receiving data.
+    /**
+     * Called when the Media is sending or receiving data.
+     * 
+     * @param sender
+     *            The source of the event.
+     * @param e
+     *            Event arguments.
+     * @see IGXMedia.Trace Traceseealso>
+     */
+    void onTrace(Object sender, TraceEventArgs e);
 
-     @param sender
-     @param e
-     @see IGXMedia.Trace Traceseealso>
-    */
-    void onTrace(Object sender, TraceEventArgs e);    
-    
-    // Summary:
-    //     Represents the method that will handle the System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-    //     event raised when a property is changed on a component.
-    //
-    // Parameters:
-    //   sender:
-    //     The source of the event.
-    //
-    //   e:
-    //     A System.ComponentModel.PropertyChangedEventArgs that contains the event
-    //     data.
+    /**
+     * Event is raised when a property is changed on a component.
+     * 
+     * @param sender
+     *            The source of the event.
+     * @param e
+     *            Event arguments.
+     */
     void onPropertyChanged(Object sender, PropertyChangedEventArgs e);
 }

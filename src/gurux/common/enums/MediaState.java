@@ -32,28 +32,28 @@
 // Full text may be retrieved at http://www.gnu.org/licenses/gpl-2.0.txt
 //---------------------------------------------------------------------------
 
-package gurux.io;
+package gurux.common.enums;
 
 /**
- * Specifies the parity bit for a System.IO.Ports.SerialPort object.
+ * Available media state changes.
  * 
  * @author Gurux Ltd.
  */
-public enum Parity {
+public enum MediaState {
     /**
-     * No parity check occurs.
+     * Media is closed.<br/>
      */
-    NONE, /**
-           * Sets the parity bit so that the count of bits set is an odd number.
+    CLOSED, /**
+             * Media is open.<br/>
+             */
+    OPEN, /**
+           * Media is opening.<br/>
            */
-    ODD, /**
-          * Sets the parity bit so that the count of bits set is an even number.
-          */
-    EVEN, /**
-           * Leaves the parity bit set to 1.
-           */
-    MARK, /**
-           * Leaves the parity bit set to 0.
-           */
-    SPACE;
+    OPENING, /**
+              * Media is closing.<br/>
+              */
+    CLOSING, /**
+              * GXClients Media type has changed.<br/>
+              */
+    CHANGED;
 }

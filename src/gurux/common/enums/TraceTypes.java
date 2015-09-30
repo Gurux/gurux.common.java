@@ -32,31 +32,37 @@
 // Full text may be retrieved at http://www.gnu.org/licenses/gpl-2.0.txt
 //---------------------------------------------------------------------------
 
-package gurux.common;
+package gurux.common.enums;
 
-/** 
- * Available media state changes.
-*/
-public enum MediaState
-{
-    /** 
-     Media is closed.<br/>            
-    */
-    CLOSED,
-    /** 
-     Media is open.<br/>            
-    */
-    OPEN,
-    /** 
-     Media is opening.<br/>
-    */
-    OPENING,
-    /** 
-     Media is closing.<br/>            
-    */
-    CLOSING,
-    /** 
-     GXClients Media type has changed.<br/>            
-    */
-    CHANGED;
+/**
+ * Trace Type enumerates where trace is sent.
+ * 
+ * @author Gurux Ltd.
+ */
+public enum TraceTypes {
+
+    /**
+     * Data is sent.
+     */
+    SENT,
+
+    /**
+     * Data is received.
+     */
+    RECEIVED,
+
+    /**
+     * Error has occurred.
+     */
+    ERROR,
+
+    /**
+     * Warning.
+     */
+    WARNING,
+
+    /**
+     * Info. Example Media states are notified as info.
+     */
+    INFO
 }

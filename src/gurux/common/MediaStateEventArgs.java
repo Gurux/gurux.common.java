@@ -34,53 +34,76 @@
 
 package gurux.common;
 
-/** 
- An argument class for media state changed event.
-*/
-public class MediaStateEventArgs
-{
-    private MediaState m_State;
-    private boolean m_Accept;
-    
-    /** 
-     Constructor
-    */
-    public MediaStateEventArgs()
-    {
+import gurux.common.enums.MediaState;
+
+/**
+ * An argument class for media state changed event.
+ * 
+ * @author Gurux Ltd.
+ */
+public class MediaStateEventArgs {
+    /**
+     * Media state.
+     */
+    private MediaState state;
+    /**
+     * Is connection accepted.
+     */
+    private boolean accept;
+
+    /**
+     * Constructor.
+     */
+    public MediaStateEventArgs() {
         setAccept(true);
     }
 
-    /** 
-     Constructor
-    */
-    public MediaStateEventArgs(MediaState state)
-    {
+    /**
+     * Constructor.
+     * 
+     * @param mediaState
+     *            New media state.
+     */
+    public MediaStateEventArgs(final MediaState mediaState) {
         super();
-        setState(state);
+        setState(mediaState);
     }
 
-    /** 
-     Status information from media state.
-    */
-    
-    public final MediaState getState()
-    {
-        return m_State;
-    }
-    public final void setState(MediaState value)
-    {
-        m_State = value;
+    /**
+     * State information from media state.
+     * 
+     * @return Media state.
+     */
+    public final MediaState getState() {
+        return state;
     }
 
-    /** 
-     True is returned if media state change succeeded.
-    */
-    public final boolean getAccept()
-    {
-        return m_Accept;
+    /**
+     * State information from media state.
+     * 
+     * @param value
+     *            Media state.
+     */
+    public final void setState(final MediaState value) {
+        state = value;
     }
-    public final void setAccept(boolean value)
-    {
-        m_Accept = value;
+
+    /**
+     * Get is media connection accepted.
+     * 
+     * @return Is connection accepted.
+     */
+    public final boolean getAccept() {
+        return accept;
+    }
+
+    /**
+     * Set is media connection accepted.
+     * 
+     * @param value
+     *            Is connection accepted.
+     */
+    public final void setAccept(final boolean value) {
+        accept = value;
     }
 }

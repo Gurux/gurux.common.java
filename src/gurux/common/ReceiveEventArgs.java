@@ -34,52 +34,83 @@
 
 package gurux.common;
 
-/** 
- Argument class for IGXMedia data received events.
-*/
-public class ReceiveEventArgs
-{
-    private Object privateData;
-    private String privateSenderInfo;
-    
-    /** 
-     Constructor
-    */
-    public ReceiveEventArgs()
-    {
+/**
+ * Argument class for IGXMedia data received events.
+ */
+public class ReceiveEventArgs {
+    /**
+     * Received data.
+     */
+    private Object receivedData;
+    /**
+     * Sender information.
+     */
+    private String senderInformation;
+
+    /**
+     * Constructor.
+     */
+    public ReceiveEventArgs() {
 
     }
 
-    /** 
-     Constructor
-    */
-    public ReceiveEventArgs(Object data, String senderInfo)
-    {
+    /**
+     * Constructor.
+     * 
+     * @param data
+     *            Received data.
+     * @param senderInfo
+     *            Sender information.
+     */
+    public ReceiveEventArgs(final Object data, final String senderInfo) {
         setData(data);
         setSenderInfo(senderInfo);
     }
 
-    /** 
-     Pointer to the (safe array) byte buffer containing the data, 
-     which is received from the device.
-    */
-    public final Object getData()
-    {
-        return privateData;
+    /**
+     * Get received data from the device.
+     * 
+     * @return Received data.
+     */
+    public final Object getData() {
+        return receivedData;
     }
-    public final void setData(Object value)
-    {
-        privateData = value;
+
+    /**
+     * Set received data from the device.
+     * 
+     * @param value
+     *            Received data.
+     */
+    public final void setData(final Object value) {
+        receivedData = value;
     }
-    /** 
-     Media depend sender information.
-    */
-    public final String getSenderInfo()
-    {
-        return privateSenderInfo;
+
+    /**
+     * Get media depend sender information. Example sender's TCP/IP address.
+     * 
+     * @return Media depend sender information.
+     */
+    public final String getSenderInfo() {
+        return senderInformation;
     }
-    public final void setSenderInfo(String value)
-    {
-        privateSenderInfo = value;
+
+    /**
+     * Set media depend sender information. Example sender's TCP/IP address.
+     * 
+     * @param value
+     *            Media depend sender information.
+     */
+    public final void setSenderInfo(final String value) {
+        senderInformation = value;
+    }
+
+    @Override
+    public final String toString() {
+        if (receivedData instanceof byte[]) {
+            return senderInformation + ":"
+                    + GXCommon.bytesToHex((byte[]) receivedData);
+        }
+        return senderInformation + ":" + String.valueOf(receivedData);
     }
 }

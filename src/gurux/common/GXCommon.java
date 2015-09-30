@@ -34,22 +34,77 @@
 
 package gurux.common;
 
-/*
+/**
  * Common methods for device communicating.
+ * 
+ * @author Gurux Ltd.
  */
-public class GXCommon 
-{
-    public static String bytesToHex(byte[] bytes) 
-    {
-        final char[] hexArray = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-        char[] hexChars = new char[bytes.length * 3];
+public final class GXCommon {
+
+    /**
+     * This is utility class and user can't create it.
+     */
+    private GXCommon() {
+
+    }
+
+    /**
+     * Amount of chars one byte is taken in string.
+     */
+    static final int HEX_SIZE = 3;
+    /**
+     * Maximum size of byte.
+     */
+    static final int MAX_BYTE_SIZE = 0xFF;
+    /**
+     * Low part of the byte.
+     */
+    static final int LOW_BYTE_PART = 0x0F;
+
+    /**
+     * Half a byte.
+     */
+    static final int NIBBLE = 4;
+
+    /**
+     * Returns high part or the byte.
+     * 
+     * @param value
+     *            Byte value.
+     * @return High part of the byte.
+     */
+    public static byte getHighByte(final int value) {
+        return (byte) (value >>> NIBBLE);
+    }
+
+    /**
+     * Get low part of the byte.
+     * 
+     * @param value
+     *            Byte value.
+     * @return Low part of the byte.
+     */
+    public static byte getLowByte(final int value) {
+        return (byte) (value & LOW_BYTE_PART);
+    }
+
+    /**
+     * Convert byte array to Hex string.
+     * 
+     * @param bytes
+     *            Bytes to convert.
+     * @return Hex string.
+     */
+    public static String bytesToHex(final byte[] bytes) {
+        final char[] hexArray = { '0', '1', '2', '3', '4', '5', '6', '7', '8',
+                '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+        char[] hexChars = new char[bytes.length * HEX_SIZE];
         int tmp;
-        for (int pos = 0; pos != bytes.length; ++pos) 
-        {
-            tmp = bytes[pos] & 0xFF;
-            hexChars[pos * 3] = hexArray[tmp >>> 4];
-            hexChars[pos * 3 + 1] = hexArray[tmp & 0x0F];
-            hexChars[pos * 3 + 2] = ' ';
+        for (int pos = 0; pos != bytes.length; ++pos) {
+            tmp = bytes[pos] & MAX_BYTE_SIZE;
+            hexChars[pos * HEX_SIZE] = hexArray[getHighByte(tmp)];
+            hexChars[pos * HEX_SIZE + 1] = hexArray[getLowByte(tmp)];
+            hexChars[pos * HEX_SIZE + 2] = ' ';
         }
         return new String(hexChars);
     }

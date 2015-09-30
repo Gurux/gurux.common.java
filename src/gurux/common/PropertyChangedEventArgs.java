@@ -34,26 +34,34 @@
 
 package gurux.common;
 
-/*
- * Provides data for the System.ComponentModel.INotifyPropertyChanged.PropertyChanged event.
+/**
+ * Provides data for the
+ * System.ComponentModel.INotifyPropertyChanged.PropertyChanged event.
+ * 
+ * @author Gurux Ltd.
  */
-public class PropertyChangedEventArgs
-{
-    private String privatePropertyName;
-    
-    /*
-     * Constructor.
+public class PropertyChangedEventArgs {
+    /**
+     * Name of changed property.
      */
-    public PropertyChangedEventArgs(String propertyName)
-    {
-        privatePropertyName = propertyName;
+    private String name;
+
+    /**
+     * Constructor.
+     * 
+     * @param propertyName
+     *            Name of changed property.
+     */
+    public PropertyChangedEventArgs(final String propertyName) {
+        name = propertyName;
     }
 
-    /*
+    /**
      * Gets the name of the property that changed.
+     * 
+     * @return Name of changed property.
      */
-    public String getPropertyName()
-    {
-        return privatePropertyName;
+    public final String getPropertyName() {
+        return name;
     }
 }
