@@ -177,11 +177,6 @@ public class TraceEventArgs {
         return String.valueOf(getData());
     }
 
-    /**
-     * Show trace event content as string.
-     * 
-     * @return
-     */
     @Override
     public final String toString() {
         DateFormat df = new SimpleDateFormat("HH:mm:ss");

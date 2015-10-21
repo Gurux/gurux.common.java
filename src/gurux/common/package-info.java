@@ -37,6 +37,5 @@
  * contains interfaces for Gurux Media components.
  *
  * @since 1.0
- * @see java.awt
  */
 package gurux.common;

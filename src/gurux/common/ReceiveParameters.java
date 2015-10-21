@@ -42,6 +42,7 @@ import java.lang.reflect.Type;
  * @author Gurux Ltd.
  *
  * @param <T>
+ *            Data type.
  */
 public class ReceiveParameters<T> {
     /**

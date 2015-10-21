@@ -41,19 +41,27 @@ package gurux.common.enums;
  */
 public enum MediaState {
     /**
-     * Media is closed.<br/>
+     * Media is closed.
      */
-    CLOSED, /**
-             * Media is open.<br/>
-             */
-    OPEN, /**
-           * Media is opening.<br/>
-           */
-    OPENING, /**
-              * Media is closing.<br/>
-              */
-    CLOSING, /**
-              * GXClients Media type has changed.<br/>
-              */
+    CLOSED,
+
+    /**
+     * Media is open.
+     */
+    OPEN,
+
+    /**
+     * Media is opening.
+     */
+    OPENING,
+
+    /**
+     * Media is closing.
+     */
+    CLOSING,
+
+    /**
+     * GXClients Media type has changed.
+     */
     CHANGED;
 }

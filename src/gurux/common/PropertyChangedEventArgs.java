@@ -35,8 +35,7 @@
 package gurux.common;
 
 /**
- * Provides data for the
- * System.ComponentModel.INotifyPropertyChanged.PropertyChanged event.
+ * Provides data for the PropertyChanged event.
  * 
  * @author Gurux Ltd.
  */

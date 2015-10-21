@@ -56,6 +56,20 @@ public final class GXCommon {
      * Maximum size of byte.
      */
     static final int MAX_BYTE_SIZE = 0xFF;
+
+    /**
+     * Amount of bytes in short.
+     */
+    static final int SHORT_BYTES = 2;
+    /**
+     * Amount of bytes in integer.
+     */
+    static final int INTEGER_BYTES = 4;
+    /**
+     * Amount of bytes in long.
+     */
+    static final int LONG_BYTES = 4;
+
     /**
      * Low part of the byte.
      */

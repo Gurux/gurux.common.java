@@ -164,17 +164,16 @@ public class GXSynchronousMediaBase {
             return (byte[]) value;
         }
         if (value instanceof Byte) {
-            // ByteBuffer.wrap(byteBarray).order(ByteOrder.BIG_ENDIAN).getInt();
             return new byte[] { ((Byte) value) };
         }
         if (value instanceof Short) {
-            return ByteBuffer.allocate(Short.BYTES).putInt((Short) value)
-                    .array();
+            return ByteBuffer.allocate(GXCommon.SHORT_BYTES)
+                    .putInt((Short) value).array();
         }
 
         if (value instanceof Integer) {
-            return ByteBuffer.allocate(Integer.BYTES).putInt((Integer) value)
-                    .array();
+            return ByteBuffer.allocate(GXCommon.INTEGER_BYTES)
+                    .putInt((Integer) value).array();
         }
         if (value instanceof String) {
             try {
@@ -211,15 +210,15 @@ public class GXSynchronousMediaBase {
         }
         java.nio.ByteBuffer buff = java.nio.ByteBuffer.wrap(value);
         if (type == Short.class) {
-            readBytes[0] = Short.BYTES;
+            readBytes[0] = GXCommon.SHORT_BYTES;
             buff.getShort();
         }
         if (type == Integer.class) {
-            readBytes[0] = Integer.BYTES;
+            readBytes[0] = GXCommon.INTEGER_BYTES;
             buff.getInt();
         }
         if (type == Long.class) {
-            readBytes[0] = Long.BYTES;
+            readBytes[0] = GXCommon.LONG_BYTES;
             buff.getLong();
         }
         if (type == String.class) {
