@@ -2,9 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gurux</groupId>
   <artifactId>gurux.common</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <packaging>jar</packaging>  
-  <name>gurux.common POM</name>
+  <name>gurux.common</name>
   <url>http://www.gurux.org</url>
   <description>gurux.common.java package implements interfaces that are needed for Gurux Media components and Gurux Device Framework. Purpose of Gurux Device Framework is help you to read your devices, meters and sensors easier.</description>
   <developers>
@@ -44,6 +44,7 @@
   </distributionManagement>
 
   <build>
+    <sourceDirectory>src</sourceDirectory>
     <plugins>
       <!-- Set used JRE version. -->
       <plugin>
