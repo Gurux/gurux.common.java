@@ -34,6 +34,8 @@
 
 package gurux.common;
 
+import java.io.UnsupportedEncodingException;
+
 /**
  * Common methods for device communicating.
  * 
@@ -52,6 +54,12 @@ public final class GXCommon {
      * Amount of chars one byte is taken in string.
      */
     static final int HEX_SIZE = 3;
+
+    /**
+     * Value of Hex A in decimal.
+     */
+    static final int HEX_A_DECIMAL_VALUE = 10;
+
     /**
      * Maximum size of byte.
      */
@@ -125,5 +133,65 @@ public final class GXCommon {
             hexChars[pos * HEX_SIZE + 2] = ' ';
         }
         return new String(hexChars, 0, hexChars.length - 1);
+    }
+
+    /**
+     * Convert char hex value to byte value.
+     * 
+     * @param c
+     *            Character to convert hex.
+     * @return Byte value of hex char value.
+     */
+    private static byte getValue(final byte c) {
+        byte value;
+        // Id char.
+        if (c > '9') {
+            if (c > 'Z') {
+                value = (byte) (c - 'a');
+            } else {
+                value = (byte) (c - 'A');
+            }
+            value += HEX_A_DECIMAL_VALUE;
+        } else {
+            // If number.
+            value = (byte) (c - '0');
+        }
+        return value;
+    }
+
+    /**
+     * Convert string to byte array.
+     * 
+     * @param value
+     *            Hex string.
+     * @return byte array.
+     */
+    public static byte[] hexToBytes(final String value) {
+        byte[] buffer = new byte[value.length() / 2];
+        int lastValue = -1;
+        int index = 0;
+        try {
+            for (byte ch : value.getBytes("ASCII")) {
+                if (ch >= '0' && ch < 'g') {
+                    if (lastValue == -1) {
+                        lastValue = getValue(ch);
+                    } else if (lastValue != -1) {
+                        buffer[index] =
+                                (byte) (lastValue << NIBBLE | getValue(ch));
+                        lastValue = -1;
+                        ++index;
+                    }
+                } else if (lastValue != -1) {
+                    buffer[index] = getValue(ch);
+                    lastValue = -1;
+                    ++index;
+                }
+            }
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+        byte[] tmp = new byte[index];
+        System.arraycopy(buffer, 0, tmp, 0, index);
+        return tmp;
     }
 }
