@@ -43,8 +43,7 @@
     </repository>
   </distributionManagement>
 
-  <build>
-    <sourceDirectory>src</sourceDirectory>
+ <build>
     <plugins>
       <!-- Set used JRE version. -->
       <plugin>
@@ -57,20 +56,20 @@
         </configuration>
       </plugin>
       <!-- Generate sources. -->
-      <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-source-plugin</artifactId>
-		<version>2.4</version>
-		<executions>
-			<execution>
-				<id>attach-sources</id>
-				<goals>
-					<goal>jar-no-fork</goal>
-				</goals>
-			</execution>
-		</executions>
-	   </plugin>
-	   <!-- Generate java doc. -->
+        <plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-source-plugin</artifactId>
+	  <version>2.4</version>
+	  <executions>
+	    <execution>
+	      <id>attach-sources</id>
+	      <goals>
+	      <goal>jar</goal>
+	      </goals>
+	    </execution>
+	  </executions>
+       </plugin>
+       <!-- Generate java doc. -->
        <plugin>
        <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-javadoc-plugin</artifactId>
@@ -84,6 +83,14 @@
            </execution>
          </executions>
        </plugin>
+    </plugins>
+  </build>
+
+ <profiles>
+  <profile> 
+    <id>release</id>
+    <build>
+      <plugins>
        <!--  Sign the component. -->
        <plugin>
          <groupId>org.apache.maven.plugins</groupId>
@@ -111,8 +118,11 @@
             <autoReleaseAfterClose>true</autoReleaseAfterClose>
          </configuration>
        </plugin>
-    </plugins>
-  </build>
+      </plugins>
+    </build>
+  </profile>
+</profiles>
+
   <licenses>
     <license>
     <name>GNU General Public License, version 2</name> 
