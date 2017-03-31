@@ -64,12 +64,9 @@ public final class NativeCode {
      * @param closing
      *            Returns handle to the event that is used when connection to
      *            the serial port is closed.
-     * 
-     * 
      * @return Serial port handle.
      */
-    public static native int openSerialPort(final String port,
-            final long[] closing);
+    public static native int openSerialPort(String port, long[] closing);
 
     /**
      * Close serial port.
@@ -80,8 +77,7 @@ public final class NativeCode {
      *            Handle to the event that is used when connection to the serial
      *            port is closed.
      */
-    public static native void closeSerialPort(final long hComPort,
-            final long closing);
+    public static native void closeSerialPort(long hComPort, long closing);
 
     /**
      * Get baud rate.
@@ -90,7 +86,7 @@ public final class NativeCode {
      *            Handle to the serial port
      * @return Current baud rate.
      */
-    public static native int getBaudRate(final long hComPort);
+    public static native int getBaudRate(long hComPort);
 
     /**
      * Set baud rate.
@@ -100,7 +96,7 @@ public final class NativeCode {
      * @param value
      *            Baud rate.
      */
-    public static native void setBaudRate(final long hComPort, final int value);
+    public static native void setBaudRate(long hComPort, int value);
 
     /**
      * Get data bits.
@@ -109,7 +105,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return Amount of data bits.
      */
-    public static native int getDataBits(final long hComPort);
+    public static native int getDataBits(long hComPort);
 
     /**
      * Set amount of data bits.
@@ -119,7 +115,7 @@ public final class NativeCode {
      * @param value
      *            Amount of data bits.
      */
-    public static native void setDataBits(final long hComPort, final int value);
+    public static native void setDataBits(long hComPort, int value);
 
     /**
      * Get parity.
@@ -128,7 +124,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return Parity.
      */
-    public static native int getParity(final long hComPort);
+    public static native int getParity(long hComPort);
 
     /**
      * Set parity.
@@ -138,7 +134,7 @@ public final class NativeCode {
      * @param value
      *            parity.
      */
-    public static native void setParity(final long hComPort, final int value);
+    public static native void setParity(long hComPort, int value);
 
     /**
      * Get stop bits.
@@ -147,7 +143,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return Amount of stop bits.
      */
-    public static native int getStopBits(final long hComPort);
+    public static native int getStopBits(long hComPort);
 
     /**
      * Set stop bits.
@@ -157,7 +153,7 @@ public final class NativeCode {
      * @param value
      *            Amount of stop bits.
      */
-    public static native void setStopBits(final long hComPort, final int value);
+    public static native void setStopBits(long hComPort, int value);
 
     /**
      * Get break state.
@@ -166,7 +162,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return Is serial port in break state.
      */
-    public static native boolean getBreakState(final long hComPort);
+    public static native boolean getBreakState(long hComPort);
 
     /**
      * Set break state.
@@ -176,8 +172,7 @@ public final class NativeCode {
      * @param value
      *            Is serial port in break state.
      */
-    public static native void setBreakState(final long hComPort,
-            final boolean value);
+    public static native void setBreakState(long hComPort, boolean value);
 
     /**
      * Get Request To Send state.
@@ -186,7 +181,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return True if RTS is set.
      */
-    public static native boolean getRtsEnable(final long hComPort);
+    public static native boolean getRtsEnable(long hComPort);
 
     /**
      * Set Request To Send state.
@@ -196,8 +191,7 @@ public final class NativeCode {
      * @param value
      *            Is RTS set.
      */
-    public static native void setRtsEnable(final long hComPort,
-            final boolean value);
+    public static native void setRtsEnable(long hComPort, boolean value);
 
     /**
      * Is Data Terminal ready set.
@@ -206,7 +200,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return True, if DTR is set.
      */
-    public static native boolean getDtrEnable(final long hComPort);
+    public static native boolean getDtrEnable(long hComPort);
 
     /**
      * Is Data Terminal ready set.
@@ -216,8 +210,7 @@ public final class NativeCode {
      * @param value
      *            True, if DTR is set.
      */
-    public static native void setDtrEnable(final long hComPort,
-            final boolean value);
+    public static native void setDtrEnable(long hComPort, boolean value);
 
     /**
      * Get Get Data Set Ready holding flag.
@@ -226,7 +219,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return True, if DST holding is set.
      */
-    public static native boolean getDsrHolding(final long hComPort);
+    public static native boolean getDsrHolding(long hComPort);
 
     /**
      * Returns amount of bytes to read.
@@ -235,7 +228,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return Amount of bytes to read.
      */
-    public static native int getBytesToRead(final long hComPort);
+    public static native int getBytesToRead(long hComPort);
 
     /**
      * Returns amount of bytes to write.
@@ -244,7 +237,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return Amount of bytes to write.
      */
-    public static native int getBytesToWrite(final long hComPort);
+    public static native int getBytesToWrite(long hComPort);
 
     /**
      * Read data from serial port to the buffer.
@@ -258,8 +251,8 @@ public final class NativeCode {
      *            port is closed.
      * @return bytes to read.
      */
-    public static native byte[] read(final long hComPort, final int readTimeout,
-            final long closing);
+    public static native byte[] read(long hComPort, int readTimeout,
+            long closing);
 
     /**
      * Write data to the serial port.
@@ -270,10 +263,9 @@ public final class NativeCode {
      *            Data to write.
      * @param writeTimeout
      *            How long data write can take.
-     * 
      */
-    public static native void write(final long hComPort, final byte[] data,
-            final int writeTimeout);
+    public static native void write(long hComPort, byte[] data,
+            int writeTimeout);
 
     /**
      * Returns Clear To Send holding flag.
@@ -282,7 +274,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return State of CTS.
      */
-    public static native boolean getCtsHolding(final long hComPort);
+    public static native boolean getCtsHolding(long hComPort);
 
     /**
      * Gets the state of the Carrier Detect line for the port.
@@ -291,7 +283,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return State of DC.
      */
-    public static native boolean getCDHolding(final long hComPort);
+    public static native boolean getCDHolding(long hComPort);
 
     /**
      * Gets the handshaking protocol for serial port transmission of data.
@@ -300,7 +292,7 @@ public final class NativeCode {
      *            Handle to the serial port.
      * @return Handshake.
      */
-    public static native int getHandshake(final long hComPort);
+    public static native int getHandshake(long hComPort);
 
     /**
      * Sets the handshaking protocol for serial port transmission of data.
@@ -310,6 +302,5 @@ public final class NativeCode {
      * @param value
      *            Handshake.
      */
-    public static native void setHandshake(final long hComPort,
-            final int value);
+    public static native void setHandshake(long hComPort, int value);
 }

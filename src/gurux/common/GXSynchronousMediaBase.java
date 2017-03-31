@@ -45,7 +45,6 @@ import gurux.common.enums.TraceLevel;
  * This class is used to handle synchronous data sending and receiving.
  * 
  * @author Gurux Ltd.
- *
  */
 public class GXSynchronousMediaBase {
 
@@ -96,7 +95,6 @@ public class GXSynchronousMediaBase {
 
     /**
      * Set received event.
-     * 
      */
     public final void setReceived() {
         receivedEvent.set();
@@ -165,6 +163,10 @@ public class GXSynchronousMediaBase {
         }
         if (value instanceof Byte) {
             return new byte[] { ((Byte) value) };
+        }
+        if (value instanceof java.lang.Character) {
+            return new byte[] {
+                    (byte) ((java.lang.Character) value).charValue() };
         }
         if (value instanceof Short) {
             return ByteBuffer.allocate(GXCommon.SHORT_BYTES)

@@ -44,7 +44,6 @@ import gurux.common.enums.TraceLevel;
  * </p>
  * 
  * @author Gurux Ltd.
- * 
  */
 public interface IGXMedia {
 
@@ -54,7 +53,7 @@ public interface IGXMedia {
      * @param listener
      *            Listener class.
      */
-            void addListener(IGXMediaListener listener);
+    void addListener(IGXMediaListener listener);
 
     /**
      * Stop to listen media events.
@@ -62,7 +61,7 @@ public interface IGXMedia {
      * @param listener
      *            Listener class.
      */
-            void removeListener(IGXMediaListener listener);
+    void removeListener(IGXMediaListener listener);
 
     /**
      * Copies the content of the media to target media.
@@ -70,18 +69,16 @@ public interface IGXMedia {
      * @param target
      *            Target media.
      */
-            void copy(Object target);
+    void copy(Object target);
 
     /**
-     * Returns name of the media.
-     * 
-     * 
-     * Media name is used to identify media connection, so two different media
-     * connection can not return same media name.
+     * Returns name of the media. Media name is used to identify media
+     * connection, so two different media connection can not return same media
+     * name.
      * 
      * @return Media name.
      */
-            String getName();
+    String getName();
 
     /**
      * Trace level of the IGXMedia.
@@ -89,7 +86,7 @@ public interface IGXMedia {
      * @return Trace level.
      * @see IGXMediaListener#onTrace
      */
-            TraceLevel getTrace();
+    TraceLevel getTrace();
 
     /**
      * Set new trace level.
@@ -97,7 +94,7 @@ public interface IGXMedia {
      * @param value
      *            Trace level.
      */
-            void setTrace(TraceLevel value);
+    void setTrace(TraceLevel value);
 
     /**
      * Opens the media.
@@ -105,21 +102,21 @@ public interface IGXMedia {
      * @throws Exception
      *             Occurred exception.
      */
-            void open() throws Exception;
+    void open() throws Exception;
 
     /**
      * Checks if the connection is established.
      * 
      * @return True, if the connection is established.
      */
-            boolean isOpen();
+    boolean isOpen();
 
     /**
      * Closes the active connection.
      * 
      * @see IGXMedia#open open
      */
-            void close();
+    void close();
 
     /**
      * Sends data asynchronously. No reply from the receiver, whether or not the
@@ -129,26 +126,25 @@ public interface IGXMedia {
      *            Data to send to the device.
      * @param receiver
      *            Media depend information of the receiver (optional).
-     * 
      * @throws Exception
      *             Occurred exception.
      * @see IGXMedia#receive receive
      */
-            void send(Object data, String receiver) throws Exception;
+    void send(Object data, String receiver) throws Exception;
 
     /**
      * Returns media type as a string.
      * 
      * @return Type of the media.
      */
-            String getMediaType();
+    String getMediaType();
 
     /**
      * Get media settings.
      * 
      * @return Media settings as a XML string.
      */
-            String getSettings();
+    String getSettings();
 
     /**
      * Set media settings.
@@ -156,7 +152,7 @@ public interface IGXMedia {
      * @param value
      *            Media settings as a XML string.
      */
-            void setSettings(final String value);
+    void setSettings(String value);
 
     /**
      * Locking this property makes the connection synchronized and stops sending
@@ -164,14 +160,14 @@ public interface IGXMedia {
      * 
      * @return Locking object.
      */
-            Object getSynchronous();
+    Object getSynchronous();
 
     /**
      * Checks if the connection is in synchronous mode.
      * 
      * @return True, if the connection is in synchronous mode.
      */
-            boolean getIsSynchronous();
+    boolean getIsSynchronous();
 
     /**
      * Waits for more reply data After SendSync if whole packet is not received
@@ -190,7 +186,7 @@ public interface IGXMedia {
     /**
      * Resets synchronous buffer.
      */
-            void resetSynchronousBuffer();
+    void resetSynchronousBuffer();
 
     /**
      * Sent byte count.
@@ -199,17 +195,16 @@ public interface IGXMedia {
      * @see IGXMedia#getBytesReceived() getBytesReceived()
      * @see IGXMedia#resetByteCounters() resetByteCounters()
      */
-            long getBytesSent();
+    long getBytesSent();
 
     /**
      * Received byte count.
      * 
      * @return Bytes received.
-     * 
      * @see IGXMedia#getBytesSent() getBytesSent()
      * @see IGXMedia#resetByteCounters() resetByteCounters()
      */
-            long getBytesReceived();
+    long getBytesReceived();
 
     /**
      * Resets BytesReceived and BytesSent counters.
@@ -217,21 +212,20 @@ public interface IGXMedia {
      * @see IGXMedia#getBytesSent() getBytesSent()
      * @see IGXMedia#getBytesReceived() getBytesReceived()
      */
-            void resetByteCounters();
+    void resetByteCounters();
 
     /**
      * Validate Media settings for connection open. Returns table of media
      * properties that must be set before media is valid to open.
-     * 
      */
-            void validate();
+    void validate();
 
     /**
      * Get used end of packet.
      * 
      * @return Used end of packet.
      */
-            Object getEop();
+    Object getEop();
 
     /**
      * Set End of packet.
@@ -239,14 +233,14 @@ public interface IGXMedia {
      * @param value
      *            Used end of packet.
      */
-            void setEop(Object value);
+    void setEop(Object value);
 
     /**
      * Get visible controls on the properties dialog.
      * 
      * @return Visible controls.
      */
-            int getConfigurableSettings();
+    int getConfigurableSettings();
 
     /**
      * Set visible controls on the properties dialog.
@@ -254,7 +248,7 @@ public interface IGXMedia {
      * @param value
      *            Visible controls.
      */
-            void setConfigurableSettings(int value);
+    void setConfigurableSettings(int value);
 
     /**
      * Shows the media Properties dialog.
@@ -263,5 +257,5 @@ public interface IGXMedia {
      *            Parent window.
      * @return Returns true if user has accepted changes.
      */
-            boolean properties(javax.swing.JFrame parent);
+    boolean properties(javax.swing.JFrame parent);
 }
