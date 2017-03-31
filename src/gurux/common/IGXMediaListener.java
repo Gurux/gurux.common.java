@@ -35,21 +35,19 @@
 package gurux.common;
 
 /**
- * 
  * @author Gurux Ltd.
- *
  */
 public interface IGXMediaListener {
-            /**
-             * Represents the method that will handle the error event of a Gurux
-             * component.
-             * 
-             * @param sender
-             *            The source of the event.
-             * @param ex
-             *            An Exception object that contains the event data.
-             */
-            void onError(Object sender, RuntimeException ex);
+    /**
+     * Represents the method that will handle the error event of a Gurux
+     * component.
+     * 
+     * @param sender
+     *            The source of the event.
+     * @param ex
+     *            An Exception object that contains the event data.
+     */
+    void onError(Object sender, Exception ex);
 
     /**
      * Media component sends received data through this method.
@@ -59,7 +57,7 @@ public interface IGXMediaListener {
      * @param e
      *            Event arguments.
      */
-            void onReceived(Object sender, ReceiveEventArgs e);
+    void onReceived(Object sender, ReceiveEventArgs e);
 
     /**
      * Media component sends notification, when its state changes.
@@ -69,7 +67,7 @@ public interface IGXMediaListener {
      * @param e
      *            Event arguments.
      */
-            void onMediaStateChange(Object sender, MediaStateEventArgs e);
+    void onMediaStateChange(Object sender, MediaStateEventArgs e);
 
     /**
      * Called when the Media is sending or receiving data.
@@ -81,7 +79,7 @@ public interface IGXMediaListener {
      * @see IGXMedia#setTrace setTrace
      * @see IGXMedia#getTrace getTrace
      */
-            void onTrace(Object sender, TraceEventArgs e);
+    void onTrace(Object sender, TraceEventArgs e);
 
     /**
      * Event is raised when a property is changed on a component.
@@ -91,5 +89,5 @@ public interface IGXMediaListener {
      * @param e
      *            Event arguments.
      */
-            void onPropertyChanged(Object sender, PropertyChangedEventArgs e);
+    void onPropertyChanged(Object sender, PropertyChangedEventArgs e);
 }
