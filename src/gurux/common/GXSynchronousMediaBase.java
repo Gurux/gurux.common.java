@@ -210,6 +210,10 @@ public class GXSynchronousMediaBase {
             readBytes[0] = 1;
             return value[0];
         }
+        if (type == Character.class) {
+            readBytes[0] = 1;
+            return new Character((char) value[0]);
+        }
         java.nio.ByteBuffer buff = java.nio.ByteBuffer.wrap(value);
         if (type == Short.class) {
             readBytes[0] = GXCommon.SHORT_BYTES;

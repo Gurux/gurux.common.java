@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gurux</groupId>
   <artifactId>gurux.common</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
   <packaging>jar</packaging>  
   <name>gurux.common</name>
   <url>http://www.gurux.org</url>
@@ -44,6 +44,7 @@
   </distributionManagement>
 
  <build>
+    <sourceDirectory>src</sourceDirectory>
     <plugins>
       <!-- Set used JRE version. -->
       <plugin>
