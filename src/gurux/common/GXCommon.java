@@ -194,4 +194,41 @@ public final class GXCommon {
         System.arraycopy(buffer, 0, tmp, 0, index);
         return tmp;
     }
+
+    /**
+     * Returns command line parameters.
+     * 
+     * @param args
+     *            Command line parameters.
+     * @param optstring
+     *            Expected option tags.
+     * @return List of command line parameters
+     */
+    public static java.util.ArrayList<GXCmdParameter>
+            getParameters(String[] args, String optstring) {
+        java.util.ArrayList<GXCmdParameter> list =
+                new java.util.ArrayList<GXCmdParameter>();
+        for (int index = 0; index < args.length; ++index) {
+            if (args[index].charAt(0) != '-' && args[index].charAt(0) != '/') {
+                throw new IllegalArgumentException(
+                        "Invalid parameter: " + args[index]);
+            }
+            int pos = optstring.indexOf(args[index].charAt(1));
+            if (pos == -1) {
+                throw new IllegalArgumentException(
+                        "Invalid parameter: " + args[index]);
+            }
+            GXCmdParameter c = new GXCmdParameter();
+            c.setTag(args[index].charAt(1));
+            list.add(c);
+            if (optstring.charAt(1 + pos) == ':') {
+                ++index;
+                if (args.length <= index) {
+                    c.setMissing(true);
+                }
+                c.setValue(args[index]);
+            }
+        }
+        return list;
+    }
 }
