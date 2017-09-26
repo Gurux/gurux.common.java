@@ -35,6 +35,7 @@
 package gurux.common;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 /**
  * Common methods for device communicating.
@@ -204,8 +205,8 @@ public final class GXCommon {
      *            Expected option tags.
      * @return List of command line parameters
      */
-    public static java.util.ArrayList<GXCmdParameter>
-            getParameters(String[] args, String optstring) {
+    public static List<GXCmdParameter> getParameters(final String[] args,
+            final String optstring) {
         java.util.ArrayList<GXCmdParameter> list =
                 new java.util.ArrayList<GXCmdParameter>();
         for (int index = 0; index < args.length; ++index) {
@@ -221,7 +222,8 @@ public final class GXCommon {
             GXCmdParameter c = new GXCmdParameter();
             c.setTag(args[index].charAt(1));
             list.add(c);
-            if (optstring.charAt(1 + pos) == ':') {
+            if (pos < optstring.length() - 1
+                    && optstring.charAt(1 + pos) == ':') {
                 ++index;
                 if (args.length <= index) {
                     c.setMissing(true);
