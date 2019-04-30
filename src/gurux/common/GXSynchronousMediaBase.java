@@ -148,6 +148,24 @@ public class GXSynchronousMediaBase {
     }
 
     /**
+     * @return Amount of received bytes.
+     */
+    public int getReceivedSize() {
+        return receivedSize;
+    }
+
+    /**
+     * @return Get received data.
+     */
+    public byte[] getReceivedData() {
+        byte[] tmp = new byte[receivedSize];
+        if (receivedSize != 0) {
+            System.arraycopy(receivedBuffer, 0, tmp, 0, receivedSize);
+        }
+        return tmp;
+    }
+
+    /**
      * Get data as byte array.
      * 
      * @param value
