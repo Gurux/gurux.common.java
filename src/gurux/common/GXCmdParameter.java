@@ -99,9 +99,7 @@ public class GXCmdParameter {
     }
 
     /**
-     * Command line parameter as a string.
-     * 
-     * @return
+     * @return Command line parameter as a string.
      */
     @Override
     public String toString() {
