@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gurux</groupId>
   <artifactId>gurux.common</artifactId>
-  <version>1.0.14</version>
+  <version>1.0.14-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>gurux.common</name>
   <url>http://www.gurux.org</url>
@@ -33,7 +33,6 @@
     <connection>scm:git:https://github.com/gurux/gurux.common.java.git</connection>
     <url>https://github.com/gurux/gurux.common.java</url>
     <developerConnection>scm:git:https://github.com/gurux/gurux.common.java.git</developerConnection>
-    <tag>v1.0.14</tag>
   </scm>
 
   <!-- Update component to Central repository. -->
@@ -60,18 +59,6 @@
           <source>12</source>
           <target>12</target>
         </configuration>
-      </plugin>
-      <!-- Attach source codes. -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>3.1.0</version>
-      </plugin>
-      <!-- Generate java-doc. -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.1.1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
