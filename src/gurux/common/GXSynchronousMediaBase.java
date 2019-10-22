@@ -1,7 +1,7 @@
 //
 // --------------------------------------------------------------------------
 //  Gurux Ltd
-// 
+//
 //
 //
 // Filename:        $HeadURL$
@@ -19,16 +19,16 @@
 // This file is a part of Gurux Device Framework.
 //
 // Gurux Device Framework is Open Source software; you can redistribute it
-// and/or modify it under the terms of the GNU General Public License 
+// and/or modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; version 2 of the License.
 // Gurux Device Framework is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of 
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // See the GNU General Public License for more details.
 //
 // More information of Gurux products: http://www.gurux.org
 //
-// This code is licensed under the GNU General Public License v2. 
+// This code is licensed under the GNU General Public License v2.
 // Full text may be retrieved at http://www.gnu.org/licenses/gpl-2.0.txt
 //---------------------------------------------------------------------------
 
@@ -43,7 +43,7 @@ import gurux.common.enums.TraceLevel;
 
 /**
  * This class is used to handle synchronous data sending and receiving.
- * 
+ *
  * @author Gurux Ltd.
  */
 public class GXSynchronousMediaBase {
@@ -102,7 +102,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Get occurred exception.
-     * 
+     *
      * @return Occurred exception.
      */
     public final RuntimeException getException() {
@@ -111,7 +111,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Set occurred exception.
-     * 
+     *
      * @param value
      *            Occurred exception.
      */
@@ -121,7 +121,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Get synchronous object.
-     * 
+     *
      * @return Synchronous object.
      */
     public final Object getSync() {
@@ -130,7 +130,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Get trace level.
-     * 
+     *
      * @return Current trace level.
      */
     public final TraceLevel getTrace() {
@@ -139,7 +139,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Set trace level.
-     * 
+     *
      * @param value
      *            New trace level.
      */
@@ -167,7 +167,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Get data as byte array.
-     * 
+     *
      * @param value
      *            Data object
      * @return Values as byte array.
@@ -209,7 +209,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Convert byte array to object.
-     * 
+     *
      * @param value
      *            Byte array.
      * @param type
@@ -254,7 +254,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Construcctor.
-     * 
+     *
      * @param bufferSize
      *            Buffer size.
      */
@@ -265,7 +265,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Append new data.
-     * 
+     *
      * @param data
      *            data to append.
      * @param index
@@ -289,7 +289,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Finds the first occurrence of the pattern in the text.
-     * 
+     *
      * @param data
      *            Data where to find.
      * @param pattern
@@ -326,7 +326,7 @@ public class GXSynchronousMediaBase {
     /**
      * Computes the failure function using a boot-strapping process, where the
      * pattern is matched against itself.
-     * 
+     *
      * @param pattern
      *            Pattern to search.
      * @return Failure pattern.
@@ -348,7 +348,7 @@ public class GXSynchronousMediaBase {
 
     /**
      * Find data from buffer.
-     * 
+     *
      * @param <T>
      *            Data type to search.
      * @param args
@@ -396,7 +396,7 @@ public class GXSynchronousMediaBase {
             }
             if (waitTime != -1) {
                 waitTime = (int) (args.getWaitTime()
-                        - (startTime - calendar.getTime().getTime()));
+                        - (calendar.getTime().getTime() - startTime));
                 if (waitTime < 0) {
                     waitTime = 0;
                 }
