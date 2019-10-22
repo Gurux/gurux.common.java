@@ -33,7 +33,6 @@
     <connection>scm:git:https://github.com/gurux/gurux.common.java.git</connection>
     <url>https://github.com/gurux/gurux.common.java</url>
     <developerConnection>scm:git:https://github.com/gurux/gurux.common.java.git</developerConnection>
-    <tag>HEAD</tag>
   </scm>
 
   <!-- Update component to Central repository. -->
@@ -53,23 +52,9 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>12</source>
+          <target>12</target>
         </configuration>
-      </plugin>
-      <!-- Generate java doc. -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.1.0</version>
-        <executions>
-          <execution>
-            <id>attach-javadocs</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
