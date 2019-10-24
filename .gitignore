@@ -217,3 +217,5 @@ pip-log.txt
 .mr.developer.cfg
 nbproject/private/private.properties
 nbproject/genfiles.properties
+pom.xml.releaseBackup
+release.properties
