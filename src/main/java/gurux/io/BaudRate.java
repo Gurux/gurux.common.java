@@ -41,6 +41,15 @@ package gurux.io;
  */
 public enum BaudRate {
     /**
+     * Baudrate is 115200.
+     */
+    BAUD_RATE_115200(115200),
+
+    /**
+     * Baudrate is 57600.
+     */
+    BAUD_RATE_57600(57600),
+    /**
      * 38,400 baud.
      */
     BAUD_RATE_38400(38400),
@@ -133,6 +142,10 @@ public enum BaudRate {
      * @return Enumeration value.
      */
     public static BaudRate forValue(final int value) {
-        return getMappings().get(value);
+        BaudRate ret = getMappings().get(value);
+        if (ret == null) {
+            throw new IllegalArgumentException("Invalid Baudrate enum value.");
+        }
+        return ret;
     }
 }
