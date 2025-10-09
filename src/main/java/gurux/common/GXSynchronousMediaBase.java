@@ -183,28 +183,23 @@ public class GXSynchronousMediaBase {
             return new byte[] { ((Byte) value) };
         }
         if (value instanceof java.lang.Character) {
-            return new byte[] {
-                    (byte) ((java.lang.Character) value).charValue() };
+            return new byte[] { (byte) ((java.lang.Character) value).charValue() };
         }
         if (value instanceof Short) {
-            return ByteBuffer.allocate(GXCommon.SHORT_BYTES)
-                    .putInt((Short) value).array();
+            return ByteBuffer.allocate(GXCommon.SHORT_BYTES).putInt((Short) value).array();
         }
 
         if (value instanceof Integer) {
-            return ByteBuffer.allocate(GXCommon.INTEGER_BYTES)
-                    .putInt((Integer) value).array();
+            return ByteBuffer.allocate(GXCommon.INTEGER_BYTES).putInt((Integer) value).array();
         }
         if (value instanceof String) {
             try {
-                return java.nio.ByteBuffer
-                        .wrap(((String) value).getBytes("ASCII")).array();
+                return java.nio.ByteBuffer.wrap(((String) value).getBytes("ASCII")).array();
             } catch (UnsupportedEncodingException ex) {
                 throw new RuntimeException(ex.getMessage());
             }
         }
-        throw new RuntimeException(
-                "Unknown data type " + value.getClass().getName());
+        throw new RuntimeException("Unknown data type " + value.getClass().getName());
     }
 
     /**
@@ -218,8 +213,7 @@ public class GXSynchronousMediaBase {
      *            Amount of read bytes.
      * @return Created object.
      */
-    public static Object byteArrayToObject(final byte[] value, final Type type,
-            final int[] readBytes) {
+    public static Object byteArrayToObject(final byte[] value, final Type type, final int[] readBytes) {
         if (type == byte[].class) {
             readBytes[0] = value.length;
             return value;
@@ -273,8 +267,7 @@ public class GXSynchronousMediaBase {
      * @param count
      *            Count of bytes to add.
      */
-    public final void appendData(final byte[] data, final int index,
-            final int count) {
+    public final void appendData(final byte[] data, final int index, final int count) {
         synchronized (sync) {
             // Allocate new buffer.
             if (receivedSize + count > receivedBuffer.length) {
@@ -300,8 +293,7 @@ public class GXSynchronousMediaBase {
      *            Count of bytes to search.
      * @return Is pattern found.
      */
-    public static int indexOf(final byte[] data, final byte[] pattern,
-            final int index, final int count) {
+    public static int indexOf(final byte[] data, final byte[] pattern, final int index, final int count) {
         int[] failure = computeFailure(pattern);
 
         int j = 0;
@@ -358,8 +350,7 @@ public class GXSynchronousMediaBase {
      * @return Position where end of packet was found. -1 Is returned if data
      *         was not found in given time.
      */
-    private <T> int findData(final ReceiveParameters<T> args,
-            final boolean[] isFound) {
+    private <T> int findData(final ReceiveParameters<T> args, final boolean[] isFound) {
         boolean isReceived;
         int nSize = 0, foundPosition = -1;
         int lastBuffSize = 0;
@@ -395,15 +386,13 @@ public class GXSynchronousMediaBase {
                 break;
             }
             if (waitTime != -1) {
-                waitTime = (int) (args.getWaitTime()
-                        - (calendar.getTime().getTime() - startTime));
+                waitTime = (int) (args.getWaitTime() - (calendar.getTime().getTime() - startTime));
                 if (waitTime < 0) {
                     waitTime = 0;
                 }
             }
             synchronized (sync) {
-                isReceived = !(lastBuffSize == receivedSize
-                        || receivedSize < nMinSize);
+                isReceived = !(lastBuffSize == receivedSize || receivedSize < nMinSize);
             }
             // Do not wait if there is data on the buffer...
             if (!isReceived) {
@@ -447,23 +436,29 @@ public class GXSynchronousMediaBase {
                     if (args.getEop() instanceof Array) {
                         for (Object it : (Object[]) args.getEop()) {
                             byte[] term = getAsByteArray(it);
-                            if (term.length != 1
-                                    && receivedSize - index < term.length) {
+                            if (term.length != 1 && receivedSize - index < term.length) {
                                 index = receivedSize - term.length;
                             }
-                            foundPosition = indexOf(receivedBuffer, term, index,
-                                    receivedSize);
+                            foundPosition = indexOf(receivedBuffer, term, index, receivedSize);
                             if (foundPosition != -1) {
                                 break;
                             }
                         }
                     } else {
-                        if (terminator.length != 1
-                                && receivedSize - index < terminator.length) {
+                        if (terminator.length != 1 && receivedSize - index < terminator.length) {
+                            if ((receivedSize < terminator.length)) {
+                                isFound[0] = false;
+                                // If we want to read all data.
+                                if (args.getAllData()) {
+                                    foundPosition = receivedSize;
+                                } else {
+                                    foundPosition = -1;
+                                }
+                                break;
+                            }
                             index = receivedSize - terminator.length;
                         }
-                        foundPosition = indexOf(receivedBuffer, terminator,
-                                index, receivedSize);
+                        foundPosition = indexOf(receivedBuffer, terminator, index, receivedSize);
                     }
                     lastPosition = receivedSize;
                     if (foundPosition != -1) {
@@ -490,8 +485,7 @@ public class GXSynchronousMediaBase {
      */
     public final <T> boolean receive(final ReceiveParameters<T> args) {
         if (args.getEop() == null && args.getCount() == 0) {
-            throw new IllegalArgumentException(
-                    "Either Count or Eop must be set.");
+            throw new IllegalArgumentException("Either Count or Eop must be set.");
         }
         boolean[] retValue = new boolean[1];
         int foundPosition = findData(args, retValue);
@@ -508,8 +502,7 @@ public class GXSynchronousMediaBase {
                     byte[] tmp = new byte[foundPosition];
                     System.arraycopy(receivedBuffer, 0, tmp, 0, foundPosition);
                     int[] readBytes = new int[1];
-                    data = byteArrayToObject(tmp, args.getReplyType(),
-                            readBytes);
+                    data = byteArrayToObject(tmp, args.getReplyType(), readBytes);
                     // Remove read data.
                     receivedSize -= foundPosition;
                     // Received size can go less than zero if we have received
@@ -519,8 +512,7 @@ public class GXSynchronousMediaBase {
                         receivedSize = 0;
                     }
                     if (receivedSize != 0) {
-                        System.arraycopy(receivedBuffer, foundPosition,
-                                receivedBuffer, 0, receivedSize);
+                        System.arraycopy(receivedBuffer, foundPosition, receivedBuffer, 0, receivedSize);
                     }
                 }
             }
@@ -544,12 +536,9 @@ public class GXSynchronousMediaBase {
                         int len = oldReplySize + Array.getLength(newArray);
                         byte[] arr = new byte[len];
                         // Copy old values.
-                        System.arraycopy((byte[]) args.getReply(), 0, arr, 0,
-                                Array.getLength(oldArray));
+                        System.arraycopy((byte[]) args.getReply(), 0, arr, 0, Array.getLength(oldArray));
                         // Copy new values.
-                        System.arraycopy(newArray, 0, arr,
-                                Array.getLength(oldArray),
-                                Array.getLength(newArray));
+                        System.arraycopy(newArray, 0, arr, Array.getLength(oldArray), Array.getLength(newArray));
                         args.setReply(arr);
                     }
                 } else {

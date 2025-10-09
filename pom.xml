@@ -5,23 +5,23 @@
   <version>1.0.18-SNAPSHOT</version> 
   <packaging>jar</packaging>
   <name>gurux.common</name>
-  <url>http://www.gurux.org</url>
+  <url>http://www.gurux.fi</url>
   <description>gurux.common.java package implements interfaces that are needed for Gurux Media components and Gurux Device Framework. Purpose of Gurux Device Framework is help you to read your devices, meters and sensors easier.</description>
   <developers>
     <developer>
       <id>Gurux</id>
       <name>Gurux Ltd.</name>
-      <email>gurux@gurux.org</email>
-      <url>http://www.gurux.org</url>
+      <email>gurux@gurux.fi</email>
+      <url>http://www.gurux.fi</url>
       <organization>Gurux Ltd.</organization>
-      <organizationUrl>http://www.gurux.org</organizationUrl>
+      <organizationUrl>http://www.gurux.fi</organizationUrl>
       <roles>
         <role>architect</role>
         <role>developer</role>
       </roles>
       <timezone>Europe/Helsinki</timezone>
       <properties>
-        <picUrl>http://www.gurux.org/images/gurux-avatar.png</picUrl>
+        <picUrl>http://www.gurux.fi/images/gurux-avatar.png</picUrl>
       </properties>
     </developer>
   </developers>
@@ -30,7 +30,6 @@
     <maven.compiler.source>7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
-
   <scm>
     <connection>scm:git:https://github.com/gurux/gurux.common.java.git</connection>
     <url>https://github.com/gurux/gurux.common.java</url>
@@ -56,7 +55,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>3.12.0</version>
         <executions>
           <execution>
            <id>attach-javadocs</id>
@@ -69,7 +68,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>3.0.0-M1</version>
+        <version>3.1.1</version>
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
           <autoVersionSubmodules>true</autoVersionSubmodules>
@@ -96,9 +95,9 @@
 	      </plugin>    
           <!--  Sign the component. -->
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
+          	<groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.5</version>
+            <version>3.2.8</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -111,21 +110,20 @@
           </plugin>
           <!-- Deployment and release -->
           <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>nexus-releases</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
+	      	<groupId>org.sonatype.central</groupId>
+	        <artifactId>central-publishing-maven-plugin</artifactId>
+	         <version>0.9.0</version>
+	        <extensions>true</extensions>
+	        <configuration>
+	          <publishingServerId>central</publishingServerId>
+	          <autoPublish>true</autoPublish>
+	          <waitUntil>published</waitUntil>
+	        </configuration>
           </plugin>
         </plugins>
       </build>
     </profile>
   </profiles>
-
   <licenses>
     <license>
       <name>GNU General Public License, version 2</name>
@@ -133,7 +131,7 @@
     </license>
   </licenses>
   <organization>
-    <url>www.gurux.org</url>
+    <url>www.gurux.fi</url>
     <name>Gurux Ltd.</name>
   </organization>
 </project>
