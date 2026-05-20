@@ -35,36 +35,31 @@
 package gurux.io;
 
 /**
- * Specifies the control protocol used in establishing a serial port
- * communication.
+ * Specifies flow-control protocol options for serial communication.
  * 
  * @author Gurux Ltd.
  */
 public enum Handshake {
     /**
-     * No control is used for the handshake.
+        * No flow control is used.
      */
     NONE,
 
     /**
-     * The XON/XOFF software control protocol is used. The XOFF control is sent
-     * to stop the transmission of data. The XON control is sent to resume the
-     * transmission. These software controls are used instead of Request to Send
-     * (RTS) and Clear to Send (CTS) hardware controls.
+    * Uses XON/XOFF software flow control.
+    * <p>
+    * XOFF is sent to pause transmission and XON is sent to resume it.
+    * </p>
      */
     XOnXOff,
 
     /**
-     * Request-to-Send (RTS) hardware flow control is used. RTS signals that
-     * data is available for transmission. If the input buffer becomes full, the
-     * RTS line will be set to false. The RTS line will be set to true when more
-     * room becomes available in the input buffer.
+    * Uses Request-to-Send (RTS) hardware flow control.
      */
     RequestToSend,
 
     /**
-     * Both the Request-to-Send (RTS) hardware control and the XON/XOFF software
-     * controls are used.
+     * Uses both RTS hardware flow control and XON/XOFF software flow control.
      */
     RequestToSendXOnXOff,
 }

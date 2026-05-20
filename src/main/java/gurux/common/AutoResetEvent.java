@@ -56,7 +56,7 @@ public class AutoResetEvent {
      * Constructor.
      * 
      * @param open
-     *            Is current state set.
+     *             Is current state set.
      */
     public AutoResetEvent(final boolean open) {
         isOpen = open;
@@ -85,7 +85,7 @@ public class AutoResetEvent {
      * Wait until event occurs.
      * 
      * @param timeout
-     *            Wait time in mill seconds.
+     *                Wait time in mill seconds.
      * @return True when event occurs or false if event is closed.
      */
     public final boolean waitOne(final long timeout) {

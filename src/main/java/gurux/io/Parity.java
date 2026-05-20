@@ -35,25 +35,32 @@
 package gurux.io;
 
 /**
- * Specifies the parity bit for a System.IO.Ports.SerialPort object.
+ * Specifies parity modes for serial communication.
+ * <p>
+ * Parity adds an optional error-checking bit to each transmitted character.
+ * </p>
  * 
  * @author Gurux Ltd.
  */
 public enum Parity {
     /**
-     * No parity check occurs.
+     * No parity bit is used.
      */
-    NONE, /**
-           * Sets the parity bit so that the count of bits set is an odd number.
-           */
-    ODD, /**
-          * Sets the parity bit so that the count of bits set is an even number.
-          */
-    EVEN, /**
-           * Leaves the parity bit set to 1.
-           */
-    MARK, /**
-           * Leaves the parity bit set to 0.
-           */
+    NONE,
+    /**
+     * The parity bit is set so that the total number of set bits is odd.
+     */
+    ODD,
+    /**
+     * The parity bit is set so that the total number of set bits is even.
+     */
+    EVEN,
+    /**
+     * The parity bit is always set to {@code 1}.
+     */
+    MARK,
+    /**
+     * The parity bit is always set to {@code 0}.
+     */
     SPACE;
 }

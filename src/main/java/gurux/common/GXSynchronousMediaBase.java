@@ -268,15 +268,27 @@ public class GXSynchronousMediaBase {
      *            Count of bytes to add.
      */
     public final void appendData(final byte[] data, final int index, final int count) {
-        synchronized (sync) {
-            // Allocate new buffer.
-            if (receivedSize + count > receivedBuffer.length) {
-                byte[] tmp = new byte[2 * receivedBuffer.length];
-                System.arraycopy(receivedBuffer, 0, tmp, 0, receivedSize);
-                receivedBuffer = tmp;
+        if (index < 0) {
+            throw new IllegalArgumentException("Invalid index value.");
+        }
+        if (count < 0) {
+            throw new IllegalArgumentException("Invalid count value.");
+        }
+        if (count != 0) {
+            synchronized (sync) {
+                // Allocate new buffer.
+                if (receivedSize + count - index > receivedBuffer.length) {
+                    int len = 2 * receivedBuffer.length;
+                    if (receivedSize + count - index > len) {
+                        len = 2 * (receivedSize + count - index);
+                    }
+                    byte[] tmp = new byte[len];
+                    System.arraycopy(receivedBuffer, 0, tmp, 0, receivedSize);
+                    receivedBuffer = tmp;
+                }
+                System.arraycopy(data, index, receivedBuffer, receivedSize, count);
+                receivedSize += count - index;
             }
-            System.arraycopy(data, index, receivedBuffer, receivedSize, count);
-            receivedSize += count - index;
         }
     }
 

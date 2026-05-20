@@ -35,7 +35,7 @@
 package gurux.io;
 
 /**
- * Specifies the number of stop bits used on the Serial Port.
+ * Specifies the number of stop bits used for serial communication.
  * 
  * @author Gurux Ltd.
  */
@@ -43,11 +43,13 @@ public enum StopBits {
     /**
      * One stop bit is used.
      */
-    ONE, /**
-          * Two stop bits are used.
-          */
-    TWO, /**
-          * 1.5 stop bits are used.
-          */
+    ONE,
+    /**
+     * Two stop bits are used.
+     */
+    TWO,
+    /**
+     * 1.5 stop bits are used.
+     */
     ONE_POINT_FIVE;
 }

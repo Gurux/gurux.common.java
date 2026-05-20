@@ -51,7 +51,7 @@ public interface IGXMedia {
      * Start to listen media events.
      * 
      * @param listener
-     *            Listener class.
+     *                 Listener class.
      */
     void addListener(IGXMediaListener listener);
 
@@ -59,7 +59,7 @@ public interface IGXMedia {
      * Stop to listen media events.
      * 
      * @param listener
-     *            Listener class.
+     *                 Listener class.
      */
     void removeListener(IGXMediaListener listener);
 
@@ -67,7 +67,7 @@ public interface IGXMedia {
      * Copies the content of the media to target media.
      * 
      * @param target
-     *            Target media.
+     *               Target media.
      */
     void copy(Object target);
 
@@ -92,7 +92,7 @@ public interface IGXMedia {
      * Set new trace level.
      * 
      * @param value
-     *            Trace level.
+     *              Trace level.
      */
     void setTrace(TraceLevel value);
 
@@ -100,7 +100,7 @@ public interface IGXMedia {
      * Opens the media.
      * 
      * @throws Exception
-     *             Occurred exception.
+     *                   Occurred exception.
      */
     void open() throws Exception;
 
@@ -123,11 +123,11 @@ public interface IGXMedia {
      * operation was successful, is expected.
      * 
      * @param data
-     *            Data to send to the device.
+     *                 Data to send to the device.
      * @param receiver
-     *            Media depend information of the receiver (optional).
+     *                 Media depend information of the receiver (optional).
      * @throws Exception
-     *             Occurred exception.
+     *                   Occurred exception.
      * @see IGXMedia#receive receive
      */
     void send(Object data, String receiver) throws Exception;
@@ -150,7 +150,7 @@ public interface IGXMedia {
      * Set media settings.
      * 
      * @param value
-     *            Media settings as a XML string.
+     *              Media settings as a XML string.
      */
     void setSettings(String value);
 
@@ -174,9 +174,9 @@ public interface IGXMedia {
      * yet.
      * 
      * @param <T>
-     *            Media type.
+     *             Media type.
      * @param args
-     *            Receive data arguments.
+     *             Receive data arguments.
      * @return True, if the send operation was successful.
      * @see IGXMedia#send send
      * @see IGXMedia#getIsSynchronous getIsSynchronous
@@ -231,7 +231,7 @@ public interface IGXMedia {
      * Set End of packet.
      * 
      * @param value
-     *            Used end of packet.
+     *              Used end of packet.
      */
     void setEop(Object value);
 
@@ -246,7 +246,7 @@ public interface IGXMedia {
      * Set visible controls on the properties dialog.
      * 
      * @param value
-     *            Visible controls.
+     *              Visible controls.
      */
     void setConfigurableSettings(int value);
 
@@ -254,7 +254,7 @@ public interface IGXMedia {
      * Shows the media Properties dialog.
      * 
      * @param parent
-     *            Parent window.
+     *               Parent window.
      * @return Returns true if user has accepted changes.
      */
     boolean properties(javax.swing.JFrame parent);

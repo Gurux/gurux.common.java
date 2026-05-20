@@ -52,8 +52,8 @@ public interface IGXMedia2 extends IGXMedia {
 
     /**
      * @param value
-     *            How long data from the media is waited before received data is
-     *            handled.
+     *              How long data from the media is waited before received data is
+     *              handled.
      */
     void setReceiveDelay(int value);
 
@@ -64,7 +64,7 @@ public interface IGXMedia2 extends IGXMedia {
 
     /**
      * @param value
-     *            Wait time for asynchronous messages.
+     *              Wait time for asynchronous messages.
      */
     void setAsyncWaitTime(int value);
 

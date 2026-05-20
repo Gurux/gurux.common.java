@@ -42,265 +42,267 @@ package gurux.io;
  */
 public final class NativeCode {
 
-    /**
-     * This is utility class and user can't create it.
-     */
-    private NativeCode() {
+        /**
+         * This is utility class and user can't create it.
+         */
+        private NativeCode() {
 
-    }
+        }
 
-    /**
-     * Returns available serial ports.
-     * 
-     * @return Collection of available serial port names.
-     */
-    public static native String[] getPortNames();
+        /**
+         * Returns available serial ports.
+         * 
+         * @return Collection of available serial port names.
+         */
+        public static native String[] getPortNames();
 
-    /**
-     * Open serial port.
-     * 
-     * @param port
-     *            Name of serial port.
-     * @param closing
-     *            Returns handle to the event that is used when connection to
-     *            the serial port is closed.
-     * @return Serial port handle.
-     */
-    public static native int openSerialPort(String port, long[] closing);
+        /**
+         * Open serial port.
+         * 
+         * @param port
+         *                Name of serial port.
+         * @param closing
+         *                Returns handle to the event that is used when connection to
+         *                the serial port is closed.
+         * @return Serial port handle.
+         */
+        public static native int openSerialPort(String port, long[] closing);
 
-    /**
-     * Close serial port.
-     * 
-     * @param hComPort
-     *            Handle to the serial port to close.
-     * @param closing
-     *            Handle to the event that is used when connection to the serial
-     *            port is closed.
-     */
-    public static native void closeSerialPort(long hComPort, long closing);
+        /**
+         * Close serial port.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port to close.
+         * @param closing
+         *                 Handle to the event that is used when connection to the
+         *                 serial
+         *                 port is closed.
+         */
+        public static native void closeSerialPort(long hComPort, long closing);
 
-    /**
-     * Get baud rate.
-     * 
-     * @param hComPort
-     *            Handle to the serial port
-     * @return Current baud rate.
-     */
-    public static native int getBaudRate(long hComPort);
+        /**
+         * Get baud rate.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port
+         * @return Current baud rate.
+         */
+        public static native int getBaudRate(long hComPort);
 
-    /**
-     * Set baud rate.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param value
-     *            Baud rate.
-     */
-    public static native void setBaudRate(long hComPort, int value);
+        /**
+         * Set baud rate.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @param value
+         *                 Baud rate.
+         */
+        public static native void setBaudRate(long hComPort, int value);
 
-    /**
-     * Get data bits.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return Amount of data bits.
-     */
-    public static native int getDataBits(long hComPort);
+        /**
+         * Get data bits.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return Amount of data bits.
+         */
+        public static native int getDataBits(long hComPort);
 
-    /**
-     * Set amount of data bits.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param value
-     *            Amount of data bits.
-     */
-    public static native void setDataBits(long hComPort, int value);
+        /**
+         * Set amount of data bits.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @param value
+         *                 Amount of data bits.
+         */
+        public static native void setDataBits(long hComPort, int value);
 
-    /**
-     * Get parity.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return Parity.
-     */
-    public static native int getParity(long hComPort);
+        /**
+         * Get parity.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return Parity.
+         */
+        public static native int getParity(long hComPort);
 
-    /**
-     * Set parity.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param value
-     *            parity.
-     */
-    public static native void setParity(long hComPort, int value);
+        /**
+         * Set parity.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @param value
+         *                 parity.
+         */
+        public static native void setParity(long hComPort, int value);
 
-    /**
-     * Get stop bits.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return Amount of stop bits.
-     */
-    public static native int getStopBits(long hComPort);
+        /**
+         * Get stop bits.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return Amount of stop bits.
+         */
+        public static native int getStopBits(long hComPort);
 
-    /**
-     * Set stop bits.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param value
-     *            Amount of stop bits.
-     */
-    public static native void setStopBits(long hComPort, int value);
+        /**
+         * Set stop bits.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @param value
+         *                 Amount of stop bits.
+         */
+        public static native void setStopBits(long hComPort, int value);
 
-    /**
-     * Get break state.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return Is serial port in break state.
-     */
-    public static native boolean getBreakState(long hComPort);
+        /**
+         * Get break state.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return Is serial port in break state.
+         */
+        public static native boolean getBreakState(long hComPort);
 
-    /**
-     * Set break state.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param value
-     *            Is serial port in break state.
-     */
-    public static native void setBreakState(long hComPort, boolean value);
+        /**
+         * Set break state.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @param value
+         *                 Is serial port in break state.
+         */
+        public static native void setBreakState(long hComPort, boolean value);
 
-    /**
-     * Get Request To Send state.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return True if RTS is set.
-     */
-    public static native boolean getRtsEnable(long hComPort);
+        /**
+         * Get Request To Send state.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return True if RTS is set.
+         */
+        public static native boolean getRtsEnable(long hComPort);
 
-    /**
-     * Set Request To Send state.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param value
-     *            Is RTS set.
-     */
-    public static native void setRtsEnable(long hComPort, boolean value);
+        /**
+         * Set Request To Send state.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @param value
+         *                 Is RTS set.
+         */
+        public static native void setRtsEnable(long hComPort, boolean value);
 
-    /**
-     * Is Data Terminal ready set.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return True, if DTR is set.
-     */
-    public static native boolean getDtrEnable(long hComPort);
+        /**
+         * Is Data Terminal ready set.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return True, if DTR is set.
+         */
+        public static native boolean getDtrEnable(long hComPort);
 
-    /**
-     * Is Data Terminal ready set.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param value
-     *            True, if DTR is set.
-     */
-    public static native void setDtrEnable(long hComPort, boolean value);
+        /**
+         * Is Data Terminal ready set.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @param value
+         *                 True, if DTR is set.
+         */
+        public static native void setDtrEnable(long hComPort, boolean value);
 
-    /**
-     * Get Get Data Set Ready holding flag.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return True, if DST holding is set.
-     */
-    public static native boolean getDsrHolding(long hComPort);
+        /**
+         * Get Get Data Set Ready holding flag.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return True, if DST holding is set.
+         */
+        public static native boolean getDsrHolding(long hComPort);
 
-    /**
-     * Returns amount of bytes to read.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return Amount of bytes to read.
-     */
-    public static native int getBytesToRead(long hComPort);
+        /**
+         * Returns amount of bytes to read.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return Amount of bytes to read.
+         */
+        public static native int getBytesToRead(long hComPort);
 
-    /**
-     * Returns amount of bytes to write.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return Amount of bytes to write.
-     */
-    public static native int getBytesToWrite(long hComPort);
+        /**
+         * Returns amount of bytes to write.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return Amount of bytes to write.
+         */
+        public static native int getBytesToWrite(long hComPort);
 
-    /**
-     * Read data from serial port to the buffer.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param readTimeout
-     *            How long data read can take.
-     * @param closing
-     *            Handle to the event that is used when connection to the serial
-     *            port is closed.
-     * @return bytes to read.
-     */
-    public static native byte[] read(long hComPort, int readTimeout,
-            long closing);
+        /**
+         * Read data from serial port to the buffer.
+         * 
+         * @param hComPort
+         *                    Handle to the serial port.
+         * @param readTimeout
+         *                    How long data read can take.
+         * @param closing
+         *                    Handle to the event that is used when connection to the
+         *                    serial
+         *                    port is closed.
+         * @return bytes to read.
+         */
+        public static native byte[] read(long hComPort, int readTimeout,
+                        long closing);
 
-    /**
-     * Write data to the serial port.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param data
-     *            Data to write.
-     * @param writeTimeout
-     *            How long data write can take.
-     */
-    public static native void write(long hComPort, byte[] data,
-            int writeTimeout);
+        /**
+         * Write data to the serial port.
+         * 
+         * @param hComPort
+         *                     Handle to the serial port.
+         * @param data
+         *                     Data to write.
+         * @param writeTimeout
+         *                     How long data write can take.
+         */
+        public static native void write(long hComPort, byte[] data,
+                        int writeTimeout);
 
-    /**
-     * Returns Clear To Send holding flag.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return State of CTS.
-     */
-    public static native boolean getCtsHolding(long hComPort);
+        /**
+         * Returns Clear To Send holding flag.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return State of CTS.
+         */
+        public static native boolean getCtsHolding(long hComPort);
 
-    /**
-     * Gets the state of the Carrier Detect line for the port.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return State of DC.
-     */
-    public static native boolean getCDHolding(long hComPort);
+        /**
+         * Gets the state of the Carrier Detect line for the port.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return State of DC.
+         */
+        public static native boolean getCDHolding(long hComPort);
 
-    /**
-     * Gets the handshaking protocol for serial port transmission of data.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @return Handshake.
-     */
-    public static native int getHandshake(long hComPort);
+        /**
+         * Gets the handshaking protocol for serial port transmission of data.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @return Handshake.
+         */
+        public static native int getHandshake(long hComPort);
 
-    /**
-     * Sets the handshaking protocol for serial port transmission of data.
-     * 
-     * @param hComPort
-     *            Handle to the serial port.
-     * @param value
-     *            Handshake.
-     */
-    public static native void setHandshake(long hComPort, int value);
+        /**
+         * Sets the handshaking protocol for serial port transmission of data.
+         * 
+         * @param hComPort
+         *                 Handle to the serial port.
+         * @param value
+         *                 Handshake.
+         */
+        public static native void setHandshake(long hComPort, int value);
 }

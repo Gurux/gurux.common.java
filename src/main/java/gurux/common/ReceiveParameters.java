@@ -79,7 +79,7 @@ public class ReceiveParameters<T> {
      * Constructor.
      * 
      * @param type
-     *            Reply type.
+     *             Reply type.
      */
     public ReceiveParameters(final Type type) {
         replyType = type;
@@ -100,7 +100,7 @@ public class ReceiveParameters<T> {
      * Set that bytes are read from the buffer without removing.
      * 
      * @param value
-     *            True, if bytes are not remove from the buffer.
+     *              True, if bytes are not remove from the buffer.
      */
     public final void setPeek(final boolean value) {
         peek = value;
@@ -122,7 +122,7 @@ public class ReceiveParameters<T> {
      * The end of packet (EOP) waited for.
      * 
      * @param value
-     *            End of packet.
+     *              End of packet.
      */
     public final void setEop(final Object value) {
         eop = value;
@@ -142,7 +142,7 @@ public class ReceiveParameters<T> {
      * The number of reply data bytes to be read.
      * 
      * @param value
-     *            Count can be between 0 and n bytes.
+     *              Count can be between 0 and n bytes.
      */
     public final void setCount(final int value) {
         if (value < 0) {
@@ -166,7 +166,7 @@ public class ReceiveParameters<T> {
      * (Default value) indicates infinite wait time.
      * 
      * @param value
-     *            Maximum wait time.
+     *              Maximum wait time.
      */
     public final void setWaitTime(final int value) {
         waitTime = value;
@@ -185,7 +185,7 @@ public class ReceiveParameters<T> {
      * If True, all the reply data is moved from the buffer to reply data.
      * 
      * @param value
-     *            Is all data read from the buffer.
+     *              Is all data read from the buffer.
      */
     public final void setAllData(final boolean value) {
         allData = value;
@@ -204,7 +204,7 @@ public class ReceiveParameters<T> {
      * Set received data.
      * 
      * @param value
-     *            Received data.
+     *              Received data.
      */
     @SuppressWarnings("unchecked")
     public final void setReply(final Object value) {

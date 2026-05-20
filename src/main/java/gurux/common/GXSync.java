@@ -47,7 +47,7 @@ public class GXSync {
      * Constructor.
      * 
      * @param value
-     *            Array to owner counter object.
+     *              Array to owner counter object.
      */
     public GXSync(final int[] value) {
         count = value;

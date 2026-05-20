@@ -33,7 +33,8 @@
 // ---------------------------------------------------------------------------
 
 /**
- * Gurux io is used to communicate with serial port component.
+ * Provides serial communication enums and helpers used by Gurux media
+ * components.
  *
  * @since 1.0
  */

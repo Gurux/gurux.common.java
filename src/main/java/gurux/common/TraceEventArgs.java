@@ -63,9 +63,9 @@ public class TraceEventArgs {
      * Constructor.
      * 
      * @param type
-     *            Trace type.
+     *             Trace type.
      * @param data
-     *            Send or received data.
+     *             Send or received data.
      */
     public TraceEventArgs(final TraceTypes type, final Object data) {
         setTimestamp(new java.util.Date());
@@ -77,13 +77,13 @@ public class TraceEventArgs {
      * Constructor.
      * 
      * @param type
-     *            Trace type.
+     *               Trace type.
      * @param data
-     *            Send or received data.
+     *               Send or received data.
      * @param index
-     *            Index where data copy is started.
+     *               Index where data copy is started.
      * @param length
-     *            How many bytes are included to data.
+     *               How many bytes are included to data.
      */
     public TraceEventArgs(final TraceTypes type, final byte[] data,
             final int index, final int length) {
@@ -107,7 +107,7 @@ public class TraceEventArgs {
      * Set time stamp.
      * 
      * @param value
-     *            new time stamp.
+     *              new time stamp.
      */
     public final void setTimestamp(final java.util.Date value) {
         timestamp = value;
@@ -126,7 +126,7 @@ public class TraceEventArgs {
      * Set is data send or received and type of trace.
      * 
      * @param value
-     *            Trace type.
+     *              Trace type.
      */
     public final void setType(final TraceTypes value) {
         traceType = value;
@@ -145,7 +145,7 @@ public class TraceEventArgs {
      * Set received or send data.
      * 
      * @param value
-     *            Sent or received data.
+     *              Sent or received data.
      */
     public final void setData(final Object value) {
         traceData = value;
@@ -155,7 +155,7 @@ public class TraceEventArgs {
      * Convert data to string.
      * 
      * @param ascii
-     *            Is content get as ASCII or hex string.
+     *              Is content get as ASCII or hex string.
      * @return Content of data as string.
      */
     public final String dataToString(final boolean ascii) {

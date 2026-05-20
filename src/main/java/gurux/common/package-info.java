@@ -33,8 +33,8 @@
 // ---------------------------------------------------------------------------
 
 /**
- * Gurux Common is collection of help classes for meter reading. It also
- * contains interfaces for Gurux Media components.
+ * Provides shared utility classes and media-related interfaces for Gurux
+ * components.
  *
  * @since 1.0
  */

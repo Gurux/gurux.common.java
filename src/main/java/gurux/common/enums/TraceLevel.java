@@ -35,33 +35,33 @@
 package gurux.common.enums;
 
 /**
- * Specifies trace levels.
+ * Defines trace output verbosity levels.
  * 
  * @author Gurux Ltd.
  */
 public enum TraceLevel {
     /**
-     * Output no tracing and debugging messages.
+        * Disables all tracing and debugging output.
      */
     OFF,
 
     /**
-     * Output error-handling messages.
+    * Outputs error messages only.
      */
     ERROR,
 
     /**
-     * Output warnings and error-handling messages.
+    * Outputs warning and error messages.
      */
     WARNING,
 
     /**
-     * Output informational messages, warnings, and error-handling messages.
+    * Outputs informational, warning, and error messages.
      */
     INFO,
 
     /**
-     * Output all debugging and tracing messages.
+     * Outputs all available tracing, including verbose debug messages.
      */
     VERBOSE;
 }

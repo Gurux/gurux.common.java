@@ -93,7 +93,7 @@ public final class GXCommon {
      * Returns high part or the byte.
      * 
      * @param value
-     *            Byte value.
+     *              Byte value.
      * @return High part of the byte.
      */
     public static byte getHighByte(final int value) {
@@ -104,7 +104,7 @@ public final class GXCommon {
      * Get low part of the byte.
      * 
      * @param value
-     *            Byte value.
+     *              Byte value.
      * @return Low part of the byte.
      */
     public static byte getLowByte(final int value) {
@@ -115,7 +115,7 @@ public final class GXCommon {
      * Convert byte array to Hex string.
      * 
      * @param bytes
-     *            Bytes to convert.
+     *              Bytes to convert.
      * @return Hex string.
      */
     public static String bytesToHex(final byte[] bytes) {
@@ -140,7 +140,7 @@ public final class GXCommon {
      * Convert char hex value to byte value.
      * 
      * @param c
-     *            Character to convert hex.
+     *          Character to convert hex.
      * @return Byte value of hex char value.
      */
     private static byte getValue(final byte c) {
@@ -164,7 +164,7 @@ public final class GXCommon {
      * Convert string to byte array.
      * 
      * @param value
-     *            Hex string.
+     *              Hex string.
      * @return byte array.
      */
     public static byte[] hexToBytes(final String value) {
@@ -177,8 +177,7 @@ public final class GXCommon {
                     if (lastValue == -1) {
                         lastValue = getValue(ch);
                     } else if (lastValue != -1) {
-                        buffer[index] =
-                                (byte) (lastValue << NIBBLE | getValue(ch));
+                        buffer[index] = (byte) (lastValue << NIBBLE | getValue(ch));
                         lastValue = -1;
                         ++index;
                     }
@@ -200,15 +199,14 @@ public final class GXCommon {
      * Returns command line parameters.
      * 
      * @param args
-     *            Command line parameters.
+     *                  Command line parameters.
      * @param optstring
-     *            Expected option tags.
+     *                  Expected option tags.
      * @return List of command line parameters
      */
     public static List<GXCmdParameter> getParameters(final String[] args,
             final String optstring) {
-        java.util.ArrayList<GXCmdParameter> list =
-                new java.util.ArrayList<GXCmdParameter>();
+        java.util.ArrayList<GXCmdParameter> list = new java.util.ArrayList<GXCmdParameter>();
         for (int index = 0; index < args.length; ++index) {
             if (args[index].charAt(0) != '-' && args[index].charAt(0) != '/') {
                 throw new IllegalArgumentException(

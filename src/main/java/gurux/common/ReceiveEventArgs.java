@@ -58,9 +58,9 @@ public class ReceiveEventArgs {
      * Constructor.
      * 
      * @param data
-     *            Received data.
+     *                   Received data.
      * @param senderInfo
-     *            Sender information.
+     *                   Sender information.
      */
     public ReceiveEventArgs(final Object data, final String senderInfo) {
         setData(data);
@@ -80,7 +80,7 @@ public class ReceiveEventArgs {
      * Set received data from the device.
      * 
      * @param value
-     *            Received data.
+     *              Received data.
      */
     public final void setData(final Object value) {
         receivedData = value;
@@ -99,7 +99,7 @@ public class ReceiveEventArgs {
      * Set media depend sender information. Example sender's TCP/IP address.
      * 
      * @param value
-     *            Media depend sender information.
+     *              Media depend sender information.
      */
     public final void setSenderInfo(final String value) {
         senderInformation = value;

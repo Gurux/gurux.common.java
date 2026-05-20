@@ -62,7 +62,7 @@ public class MediaStateEventArgs {
      * Constructor.
      * 
      * @param mediaState
-     *            New media state.
+     *                   New media state.
      */
     public MediaStateEventArgs(final MediaState mediaState) {
         super();
@@ -82,7 +82,7 @@ public class MediaStateEventArgs {
      * State information from media state.
      * 
      * @param value
-     *            Media state.
+     *              Media state.
      */
     public final void setState(final MediaState value) {
         state = value;
@@ -101,7 +101,7 @@ public class MediaStateEventArgs {
      * Set is media connection accepted.
      * 
      * @param value
-     *            Is connection accepted.
+     *              Is connection accepted.
      */
     public final void setAccept(final boolean value) {
         accept = value;

@@ -49,7 +49,7 @@ public class PropertyChangedEventArgs {
      * Constructor.
      * 
      * @param propertyName
-     *            Name of changed property.
+     *                     Name of changed property.
      */
     public PropertyChangedEventArgs(final String propertyName) {
         name = propertyName;

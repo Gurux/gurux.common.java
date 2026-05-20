@@ -35,7 +35,7 @@
 package gurux.common.enums;
 
 /**
- * Available media state changes.
+ * Lists lifecycle states for a media connection.
  * 
  * @author Gurux Ltd.
  */
@@ -61,7 +61,7 @@ public enum MediaState {
     CLOSING,
 
     /**
-     * GXClients Media type has changed.
+     * Media properties or type have changed.
      */
     CHANGED;
 }

@@ -43,9 +43,9 @@ public interface IGXMediaListener {
      * component.
      * 
      * @param sender
-     *            The source of the event.
+     *               The source of the event.
      * @param ex
-     *            An Exception object that contains the event data.
+     *               An Exception object that contains the event data.
      */
     void onError(Object sender, Exception ex);
 
@@ -53,9 +53,9 @@ public interface IGXMediaListener {
      * Media component sends received data through this method.
      * 
      * @param sender
-     *            The source of the event.
+     *               The source of the event.
      * @param e
-     *            Event arguments.
+     *               Event arguments.
      */
     void onReceived(Object sender, ReceiveEventArgs e);
 
@@ -63,9 +63,9 @@ public interface IGXMediaListener {
      * Media component sends notification, when its state changes.
      * 
      * @param sender
-     *            The source of the event.
+     *               The source of the event.
      * @param e
-     *            Event arguments.
+     *               Event arguments.
      */
     void onMediaStateChange(Object sender, MediaStateEventArgs e);
 
@@ -73,9 +73,9 @@ public interface IGXMediaListener {
      * Called when the Media is sending or receiving data.
      * 
      * @param sender
-     *            The source of the event.
+     *               The source of the event.
      * @param e
-     *            Event arguments.
+     *               Event arguments.
      * @see IGXMedia#setTrace setTrace
      * @see IGXMedia#getTrace getTrace
      */
@@ -85,9 +85,9 @@ public interface IGXMediaListener {
      * Event is raised when a property is changed on a component.
      * 
      * @param sender
-     *            The source of the event.
+     *               The source of the event.
      * @param e
-     *            Event arguments.
+     *               Event arguments.
      */
     void onPropertyChanged(Object sender, PropertyChangedEventArgs e);
 }

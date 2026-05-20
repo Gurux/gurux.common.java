@@ -62,7 +62,7 @@ public class GXCmdParameter {
 
     /**
      * @param value
-     *            Command line parameter tag.
+     *              Command line parameter tag.
      */
     public final void setTag(final char value) {
         tag = value;
@@ -77,7 +77,7 @@ public class GXCmdParameter {
 
     /**
      * @param value
-     *            Command line parameter value.
+     *              Command line parameter value.
      */
     public final void setValue(final String value) {
         parameter = value;
@@ -92,7 +92,7 @@ public class GXCmdParameter {
 
     /**
      * @param value
-     *            Parameter is missing.
+     *              Parameter is missing.
      */
     public final void setMissing(boolean value) {
         missing = value;
